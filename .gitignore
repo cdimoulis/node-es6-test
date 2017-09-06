@@ -1,0 +1,8 @@
+# Ignore the desired node version
+.nvmrc
+
+# We do not commit node modules
+node-modules
+
+# MACs come on
+.DS_Store
