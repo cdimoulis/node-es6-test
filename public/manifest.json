@@ -1,0 +1,7 @@
+{
+  "short_name": "Node Test",
+  "name": "Testing out node",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff"
+}

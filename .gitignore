@@ -1,5 +1,6 @@
-# Ignore the desired node version
+# Node stuff
 .nvmrc
+*.log
 
 # We do not commit node modules and builds
 /node_modules
