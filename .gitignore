@@ -2,9 +2,10 @@
 .nvmrc
 *.log
 
-# We do not commit node modules and builds
+# We do not commit node modules, builds and temp
 /node_modules
 /build
+/tmp
 
 # MACs come on
 .DS_Store
