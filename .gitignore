@@ -2,7 +2,7 @@
 .nvmrc
 
 # We do not commit node modules
-node-modules
+/node_modules
 
 # MACs come on
 .DS_Store
