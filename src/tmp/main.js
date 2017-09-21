@@ -1,1 +1,1 @@
-console.log('tmp/main');
+module.exports = 'love';
