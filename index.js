@@ -1,5 +1,6 @@
-const server = require('./lib/server');
+const Server = require('./lib/server');
 
+const server = new Server();
 server.start();
 
 

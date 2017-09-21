@@ -1,3 +1,3 @@
-const Build = require('./lib/build');
+const build = require('./lib/build');
 
-Build(process.argv.slice(2));
+build();
