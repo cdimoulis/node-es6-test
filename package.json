@@ -1,7 +1,7 @@
 {
-  "name": "node_test",
+  "name": "node-es6-test",
   "version": "0.0.1",
-  "description": "test for node.js",
+  "description": "test for node.js and es6",
   "keywords": [
     "test",
     "node"
