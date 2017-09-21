@@ -76,7 +76,11 @@ var _util2 = _interopRequireDefault(_util);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _util.cheese)();
+var App = function App() {
+  this.util = new _util2.default();
+};
+
+window.App = App;
 
 /***/ }),
 /* 1 */
@@ -91,18 +95,39 @@ var _main2 = _interopRequireDefault(_main);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var cheese = function cheese() {
-  return "cheese";
+var Util = function Util() {
+  var _this = this;
+
+  var elements = [];
+
+  this.getElements = function (query) {
+    switch (query[0]) {
+      case '#':
+        {
+          elements = [document.getElementById(query.slice(1))];
+          break;
+        }
+      case '.':
+        {
+          elements = document.getElementsByClassName(query.slice(1));
+          break;
+        }
+      default:
+        {
+          elements = document.getElementsByTagName(query);
+          break;
+        }
+    }
+    return elements;
+  };
+
+  this.getElement = function (query, index) {
+    index = index || 0;
+    return _this.getElements(query)[index];
+  };
 };
 
-var showLove = function showLove() {
-  return _main2.default;
-};
-
-module.exports = {
-  cheese: cheese,
-  love: showLove
-};
+module.exports = Util;
 
 /***/ }),
 /* 2 */

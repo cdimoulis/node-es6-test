@@ -1,3 +1,8 @@
-import Util, {cheese} from './util';
+import Util from './util';
 
-cheese();
+let App = function() {
+  this.util = new Util();
+  
+}
+
+window.App = App;
