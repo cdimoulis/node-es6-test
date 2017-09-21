@@ -1,8 +1,12 @@
-import Util from './util';
+import Component from './lib/component'
+import Components from './components';
 
-let App = function() {
-  this.util = new Util();
-  
+// This is the starting place.
+class App {
+
+  constructor() {
+    this.Components = Components;
+  }
 }
 
 window.App = App;

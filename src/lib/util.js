@@ -1,5 +1,3 @@
-import love from './tmp/main';
-
 const Util = function() {
   let elements = [];
 
