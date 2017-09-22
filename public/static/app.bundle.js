@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,30 +70,9 @@
 "use strict";
 
 
-var _util = __webpack_require__(2);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _util2 = _interopRequireDefault(_util);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Component = function Component() {
-  _classCallCheck(this, Component);
-
-  console.log('here', this);
-};
-
-module.exports = Component;
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _component = __webpack_require__(0);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
@@ -103,16 +82,121 @@ var _components2 = _interopRequireDefault(_components);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// This is the starting place.
-var App = function App() {
-  _classCallCheck(this, App);
+var app = null;
 
-  this.Components = _components2.default;
-};
+// This is the starting place.
+
+var App = function () {
+  function App() {
+    _classCallCheck(this, App);
+
+    if (!app) {
+      this.Components = _components2.default;
+      app = this;
+    }
+
+    return app;
+  }
+
+  _createClass(App, [{
+    key: 'test',
+    value: function test() {}
+
+    // Interesting iteration syntax
+
+  }, {
+    key: 'iterate',
+    value: function iterate() {
+      var iterate = _defineProperty({}, Symbol.iterator, function () {
+        var ind = 0,
+            done = false;
+        return {
+          next: function next() {
+            ind = ind + 1;
+            done = ind === 10 ? true : false;
+            return { done: done, value: ind };
+          }
+        };
+      });
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = iterate[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var n = _step.value;
+
+          console.log(n);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+  }, {
+    key: 'arr',
+    value: function arr(c) {
+      return c + (arguments.length <= 1 ? 0 : arguments.length - 1);
+    }
+  }], [{
+    key: 'getApp',
+    value: function getApp() {
+      return new this();
+    }
+  }]);
+
+  return App;
+}();
 
 window.App = App;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _util = __webpack_require__(2);
+
+var _util2 = _interopRequireDefault(_util);
+
+var _app = __webpack_require__(0);
+
+var _app2 = _interopRequireDefault(_app);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Component = function Component() {
+  _classCallCheck(this, Component);
+
+  console.log('here', this.constructor.name);
+
+  app = _app2.default.getApp();
+};
+
+exports.default = Component;
 
 /***/ }),
 /* 2 */
@@ -162,9 +246,15 @@ module.exports = Util;
 "use strict";
 
 
+var _input = __webpack_require__(4);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 module.exports = {
-  button: __webpack_require__(4),
-  input: __webpack_require__(5)
+  button: __webpack_require__(5),
+  input: _input2.default
 };
 
 /***/ }),
@@ -174,16 +264,11 @@ module.exports = {
 "use strict";
 
 
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _component = __webpack_require__(0);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
@@ -201,20 +286,25 @@ var Input = function (_Component) {
   function Input() {
     _classCallCheck(this, Input);
 
-    return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).apply(this, arguments));
-  }
+    var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this));
 
-  _createClass(Input, [{
-    key: 'show',
-    value: function show() {
-      console.log('show');
-    }
-  }]);
+    console.log('extended');
+    return _this;
+  }
 
   return Input;
 }(_component2.default);
 
-module.exports = Input;
+// module.exports = Input;
+
+exports.default = Input;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /***/ })
 /******/ ]);

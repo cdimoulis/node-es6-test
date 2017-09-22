@@ -2,9 +2,13 @@ import Component from '../lib/component'
 
 class Input extends Component {
 
-  show() {
-    console.log('show');
-  }
+  constructor() {
+    super();
+    console.log('extended');
+  };
+
 }
 
-module.exports = Input;
+// module.exports = Input;
+
+export default Input;
