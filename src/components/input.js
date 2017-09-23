@@ -4,7 +4,6 @@ class Input extends Component {
 
   constructor() {
     super();
-    console.log('extended');
   };
 
 }

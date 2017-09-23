@@ -1,28 +1,29 @@
-import Component from './lib/component'
 import Components from './components';
 
+// The singleton app. We don't need multiple
 let app = null;
 
 // This is the starting place.
 class App {
 
   constructor() {
+    // If the singleton exists then we don't need to create it again;
     if (!app) {
       this.Components = Components;
       app = this;
     }
 
+    // Return the singleton app
     return app;
   }
 
-  static getApp() {
-    return new this();
-  }
+
+
+
 
   test() {
 
   }
-
 
   // Interesting iteration syntax
   iterate() {

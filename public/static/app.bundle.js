@@ -72,11 +72,7 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(1);
-
-var _component2 = _interopRequireDefault(_component);
-
-var _components = __webpack_require__(3);
+var _components = __webpack_require__(1);
 
 var _components2 = _interopRequireDefault(_components);
 
@@ -86,6 +82,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// The singleton app. We don't need multiple
 var app = null;
 
 // This is the starting place.
@@ -94,11 +91,13 @@ var App = function () {
   function App() {
     _classCallCheck(this, App);
 
+    // If the singleton exists then we don't need to create it again;
     if (!app) {
       this.Components = _components2.default;
       app = this;
     }
 
+    // Return the singleton app
     return app;
   }
 
@@ -153,11 +152,6 @@ var App = function () {
     value: function arr(c) {
       return c + (arguments.length <= 1 ? 0 : arguments.length - 1);
     }
-  }], [{
-    key: 'getApp',
-    value: function getApp() {
-      return new this();
-    }
   }]);
 
   return App;
@@ -172,11 +166,68 @@ window.App = App;
 "use strict";
 
 
+var _input = __webpack_require__(2);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = {
+  button: __webpack_require__(5),
+  input: _input2.default
+};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _util = __webpack_require__(2);
+var _component = __webpack_require__(3);
+
+var _component2 = _interopRequireDefault(_component);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Input = function (_Component) {
+  _inherits(Input, _Component);
+
+  function Input() {
+    _classCallCheck(this, Input);
+
+    return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this));
+  }
+
+  return Input;
+}(_component2.default);
+
+// module.exports = Input;
+
+exports.default = Input;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _util = __webpack_require__(4);
 
 var _util2 = _interopRequireDefault(_util);
 
@@ -191,15 +242,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var Component = function Component() {
   _classCallCheck(this, Component);
 
-  console.log('here', this.constructor.name);
-
-  app = _app2.default.getApp();
+  console.log('Adding', this.constructor.name);
 };
 
 exports.default = Component;
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -238,66 +287,6 @@ var Util = function Util() {
 };
 
 module.exports = Util;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _input = __webpack_require__(4);
-
-var _input2 = _interopRequireDefault(_input);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = {
-  button: __webpack_require__(5),
-  input: _input2.default
-};
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _component = __webpack_require__(1);
-
-var _component2 = _interopRequireDefault(_component);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Input = function (_Component) {
-  _inherits(Input, _Component);
-
-  function Input() {
-    _classCallCheck(this, Input);
-
-    var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this));
-
-    console.log('extended');
-    return _this;
-  }
-
-  return Input;
-}(_component2.default);
-
-// module.exports = Input;
-
-exports.default = Input;
 
 /***/ }),
 /* 5 */
