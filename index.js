@@ -11,6 +11,7 @@ const server = new Server({
   port: argv.port,
   routes: [
     ['/temp.js', temp],
+    ['/love', (req, res) => {console.log('working?');}],
   ],
 });
 
