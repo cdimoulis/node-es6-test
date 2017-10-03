@@ -34,6 +34,7 @@ function temp(req, res) {
 
 // On every request build the src code
 function onRequest(req) {
+  console.log('method', req.method);
   // Build if request is for js
   if (req.url === '/public/static/app.bundle.js')
     build();

@@ -10,12 +10,20 @@
   "license": "ISC",
   "scripts": {
     "start": "node index.js",
+    "routes": "node index.js --routes",
     "build": "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cdimoulis/node-es6-test.git"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "simple-routes": "^0.2.2"
   }
 }
